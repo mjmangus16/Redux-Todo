@@ -1,7 +1,7 @@
 import { ADD_TODO, GET_TODOS } from "../actions";
 
 const initialState = {
-  todos: []
+  todos: [{ id: 0, content: "This is a test todo" }]
 };
 
 // Our reducer that handles our two action cases:

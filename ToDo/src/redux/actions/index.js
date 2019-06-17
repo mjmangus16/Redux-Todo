@@ -8,9 +8,9 @@ export const getTodos = () => {
   };
 };
 
-export const addTodo = () => {
+export const addTodo = data => {
   return {
     type: "ADD_TODOS",
-    payload: ""
+    payload: data
   };
 };
