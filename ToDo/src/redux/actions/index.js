@@ -3,14 +3,14 @@ export const GET_TODOS = "GET_TODOS";
 
 export const getTodos = () => {
   return {
-    type: "GET_TODOS",
+    type: GET_TODOS,
     payload: ""
   };
 };
 
 export const addTodo = data => {
   return {
-    type: "ADD_TODOS",
+    type: ADD_TODO,
     payload: data
   };
 };

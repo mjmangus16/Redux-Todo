@@ -19,7 +19,10 @@ export default (state = initialState, action) => {
     case ADD_TODO:
       return {
         ...state,
-        todos: action.payload
+        todos: [
+          ...state.todos,
+          { id: state.todos.length, content: action.payload }
+        ]
       };
     default:
       return state;
