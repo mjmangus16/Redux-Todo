@@ -1,7 +1,8 @@
-import { ADD_TODO, GET_TODOS } from "../actions";
+import { ADD_TODO, TOGGLE_TODO } from "../actions";
 
 const initialState = {
-  todos: [{ id: 0, content: "This is a test todo" }]
+  todos: [{ id: 0, content: "This is a test todo", completed: false }],
+  count: 1
 };
 
 // Our reducer that handles our two action cases:
@@ -11,18 +12,29 @@ const initialState = {
 // need to do with the count in each case?
 export default (state = initialState, action) => {
   switch (action.type) {
-    case GET_TODOS:
-      return {
-        ...state,
-        todos: action.payload
-      };
     case ADD_TODO:
       return {
         ...state,
         todos: [
           ...state.todos,
-          { id: state.todos.length, content: action.payload }
-        ]
+          {
+            id: state.count,
+            content: action.payload,
+            completed: false
+          }
+        ],
+        count: state.count + 1
+      };
+    case TOGGLE_TODO:
+      return {
+        ...state,
+        todos: state.todos.map(todo => {
+          if (todo.id === action.payload) {
+            return { ...todo, completed: !todo.completed };
+          } else {
+            return todo;
+          }
+        })
       };
     default:
       return state;

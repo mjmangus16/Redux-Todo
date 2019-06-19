@@ -1,16 +1,16 @@
 export const ADD_TODO = "ADD_TODO";
-export const GET_TODOS = "GET_TODOS";
-
-export const getTodos = () => {
-  return {
-    type: GET_TODOS,
-    payload: ""
-  };
-};
+export const TOGGLE_TODO = "TOGGLE_TODO";
 
 export const addTodo = data => {
   return {
     type: ADD_TODO,
     payload: data
+  };
+};
+
+export const toggleTodo = data => {
+  return {
+    type: TOGGLE_TODO,
+    payload: data.id
   };
 };
